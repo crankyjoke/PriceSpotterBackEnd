@@ -9,7 +9,7 @@ def home_view(request):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", home_view, name="home"),  # <-- Add this for the root URL
+    path("", home_view, name="home"),
     path("api/items/", include("pricespotter.urls")),
 path("api/", include("pricespotter.urls")),
 ]
