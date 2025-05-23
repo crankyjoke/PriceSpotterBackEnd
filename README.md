@@ -4,7 +4,7 @@
 **PriceSpotterBackEnd** is a Django‑based backend API that powers the PriceSpotter product‑comparison application.  
 It exposes RESTful endpoints for products, supports user authentication, and provides an admin dashboard for internal data management.
 
-> **Status:** Alpha – active development
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
