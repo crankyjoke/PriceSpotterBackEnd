@@ -27,11 +27,6 @@ It exposes RESTful endpoints for products, supports user authentication, and pro
 
 ## Features
 
-- **User Authentication** – JWT‑based registration, login, and protected endpoints  
-- **Product CRUD** – create, read, update, and delete products via REST API  
-- **Search & Filtering** – basic query parameters for name, store, and price range  
-- **Django Admin** – built‑in dashboard for easy data administration  
-- **Automated Tests** – Pytest + Django for unit and integration testing  
 
 ## Architecture
 
