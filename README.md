@@ -4,7 +4,7 @@
 **PriceSpotterBackEnd** is a Django‑based backend API that powers the PriceSpotter product‑comparison application.  
 It exposes RESTful endpoints for products, supports user authentication, and provides an admin dashboard for internal data management.
 
-
+> **Status:** Alpha – active development
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
@@ -38,18 +38,18 @@ It exposes RESTful endpoints for products, supports user authentication, and pro
 ```mermaid
 graph TD
     subgraph Backend
-        A[Django REST Framework]
-        B[SQLite / Postgres]
-        C[Auth (JWT)]
-        D[Products API]
+        A["Django REST Framework"]
+        B["SQLite / Postgres"]
+        C["Auth (JWT)"]
+        D["Products API"]
     end
     subgraph Frontend
-        E[PriceSpotter UI]
+        E["PriceSpotter UI"]
     end
     A -->|Expose JSON| D
     D --> B
     A --> C
-    E -->|HTTP / JSON| A
+    E -->|HTTP / JSON| A
 ```
 
 ## Prerequisites
@@ -89,12 +89,12 @@ Visit **http://127.0.0.1:8000/** for the application and **/admin/** for the adm
 
 Create a `.env` file in the project root (or export vars in your shell):
 
-| Name               | Default          | Description                           |
-|--------------------|------------------|---------------------------------------|
-| `DJANGO_SECRET_KEY`| _required_       | Django crypto key                     |
-| `DEBUG`            | `True`           | Enable debug mode                     |
-| `DATABASE_URL`     | `sqlite:///db.sqlite3` | Database connection string |
-| `ALLOWED_HOSTS`    | `localhost,127.0.0.1` | Comma‑separated host list   |
+| Name               | Default                    | Description                           |
+|--------------------|----------------------------|---------------------------------------|
+| `DJANGO_SECRET_KEY`| _required_                 | Django crypto key                     |
+| `DEBUG`            | `True`                     | Enable debug mode                     |
+| `DATABASE_URL`     | `sqlite:///db.sqlite3`     | Database connection string            |
+| `ALLOWED_HOSTS`    | `localhost,127.0.0.1`      | Comma‑separated host list             |
 
 ## Running Tests
 
