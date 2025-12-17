@@ -11,7 +11,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home_view, name="home"),
     path("api/items/", include("pricespotter.urls")),
-path("api/", include("pricespotter.urls")),
+    path("api/", include("pricespotter.urls")),
+    path("api/search/", include("pricespotter.urls")),
+
 ]
 
 if settings.DEBUG:

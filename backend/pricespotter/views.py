@@ -74,3 +74,61 @@ def login_user(request):
             return JsonResponse({"error": "Invalid credentials"}, status=401)
 
     return JsonResponse({"error": "POST request required"}, status=400)
+
+import requests
+
+# views.py
+
+import requests
+from django.http import JsonResponse
+
+def get_list(request):
+    url = "https://api.fxratesapi.com/latest?api_key=fxr_live_1ab43018a323f825075d65f10c89cc576d20"
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+        rates = data.get('rates', {})
+        return JsonResponse({"rates": rates}, status=200)
+    except requests.exceptions.RequestException as e:
+        print("An error occurred:", e)
+        return JsonResponse({"error": str(e)}, status=500)
+
+
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+
+
+
+from django.db.models import Q
+from django.http import JsonResponse
+from .models import Item
+@api_view(['GET'])
+def search_products(request):
+    search_query = request.GET.get('search', '')
+
+    items = Item.objects.filter(
+        Q(itemName__icontains=search_query) |
+        Q(itemDescription__icontains=search_query) |
+        Q(itemLocation__icontains=search_query)
+    )
+
+
+    results = [
+        {
+            'id': item.id,
+            'name': item.itemName,
+            'price': str(item.itemPrice),
+            'quantity': item.itemQuantity,
+            'location': item.itemLocation,
+            'currency': item.itemPriceCurrency,
+            'date': item.date,
+            'description': item.itemDescription,
+            'image': item.itemImage.url if item.itemImage else None,
+        }
+        for item in items
+    ]
+
+    return JsonResponse({'results': results})

@@ -17,11 +17,12 @@ class ItemSerializer(serializers.ModelSerializer):
             "date",
             "itemDescription"
         ]
-
-
-
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name','password']
+from .models import Product
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'description']
